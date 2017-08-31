@@ -6,7 +6,7 @@ ip      = '127.0.0.1'
 port    = 22
 timeout = 5
 
-exploit(ip, port, timeout): #main fuction for all modules
+def exploit(ip, port, timeout): #main fuction for all modules
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         s.settimeout(timeout)

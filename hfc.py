@@ -1,11 +1,23 @@
+import os
 from cmd import Cmd
+from importlib import import_module
 
-#Find this automaticaly in future
-scanners = 0
-exploits = 0
-misc     = 0
+scanners = sum([len(files) for r, d, files in os.walk('modules/scanners')])
+exploits = sum([len(files) for r, d, files in os.walk('modules/exploits')])
+misc     = sum([len(files) for r ,d, files in os.walk('modules/misc')]) - 1
+
+current = None
 
 class hfc(Cmd):
+    def do_show(self, args):
+        """Shows Module Options"""
+        raise NotImplementedError()
+
+    def do_use(self, module):
+        """Sets Current Module, ex: misc.ssh.bannergrab"""
+        current = import_module('modules.'+module)
+        self.prompt = 'hfc ' + module + '> '
+    
     def do_exit(self, args):
         """Exits hfc"""
         exit(0)
