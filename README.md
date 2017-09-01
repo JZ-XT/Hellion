@@ -4,7 +4,7 @@
   
 *a indie penertration testing framework *  
   
-Scanners	: 0  
+Scanners	: 1  
 Exploits	: 1  
 Misc 		: 1  
   
