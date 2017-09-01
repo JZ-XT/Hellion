@@ -5,7 +5,7 @@ import socket
 rhost   = '127.0.0.1'
 rport   = 22
 timeout = 5
-recv    = 1024
+recv    = 24
 settings = {
         'rhost'     : {'Desc': '(string) Ip to grab banner from', 'Value': rhost},
         'rport'     : {'Desc':'(int) Port to use', 'Value': rport},
