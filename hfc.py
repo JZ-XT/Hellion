@@ -9,10 +9,19 @@ misc     = sum([len(files) for r ,d, files in os.walk('modules/misc')]) - 1
 
 current = None
 
+def checkCurrent():
+    if (current == None):
+        return True
+    else:
+        return False
+
 class hfc(Cmd):
     def do_set(self, args):
         """Sets options, ex: set rhost '8.8.8.8'"""
         global current
+        if(checkCurrent()):
+            print ('[-] No Module Set, see command "Use"')
+            return
         opt = args.split()
         exec('current.' + opt[0] + ' = ' + opt[1])
         current.reloadSettings()
@@ -20,16 +29,19 @@ class hfc(Cmd):
     def do_exploit(self, args):
         """Runs the current module"""
         global current
+        if(checkCurrent()):
+            print ('[-] No Module Set, see command "Use"')
+            return
         try:
             current.exploit()
         except Exception as e:
-            print(str(e))
+            print('[-] Error: ' + str(e))
 
     def do_show(self, args):
         """Shows Module Options"""
         global current
-        if (current == None):
-            print('Module not set')
+        if(checkCurrent()):
+            print ('[-] No Module Set, see command "Use"')
             return
         print('\nSetting : Description : Value')
         print('===============================\n')
