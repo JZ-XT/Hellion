@@ -20,7 +20,7 @@ def reloadSettings():
     settings['timeout']['Value']    = timeout
     settings['recv']['Value']       = recv
 
-def exploit(): #main fuction for all modules
+def exploit(): #Entrypoint fuction for all modules
     global rhost, rport, timeout, recv
     print('Grabbing Banner...')
     try:
