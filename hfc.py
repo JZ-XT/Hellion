@@ -4,7 +4,7 @@ from importlib import import_module
 from termcolor import colored
 
 scanners = sum([len(files) for r, d, files in os.walk('modules/scanners')])
-exploits = sum([len(files) for r, d, files in os.walk('modules/exploits')])
+exploits = sum([len(files) for r, d, files in os.walk('modules/exploits')]) - 1
 misc     = sum([len(files) for r ,d, files in os.walk('modules/misc')]) - 1
 
 current = None
@@ -35,6 +35,7 @@ class hfc(Cmd):
         print('===============================\n')
         for setting, desc in current.settings.items():
             print(setting + ' : ' + desc['Desc'] + ' : ' + str(desc['Value']))
+    
         print('\n')
 
     def do_use(self, module):
