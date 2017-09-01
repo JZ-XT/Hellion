@@ -1,11 +1,13 @@
-import os
+import os, sys
 from cmd import Cmd
 from importlib import import_module
 from termcolor import colored
 
+sys.dont_write_bytecode = True
+
 scanners = sum([len(files) for r, d, files in os.walk('modules/scanners')])
-exploits = sum([len(files) for r, d, files in os.walk('modules/exploits')]) - 1
-misc     = sum([len(files) for r ,d, files in os.walk('modules/misc')]) - 1
+exploits = sum([len(files) for r, d, files in os.walk('modules/exploits')])
+misc     = sum([len(files) for r ,d, files in os.walk('modules/misc')])
 
 current = None
 
