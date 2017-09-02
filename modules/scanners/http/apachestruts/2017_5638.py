@@ -1,4 +1,3 @@
-import sys
 import random
 import requests
 
@@ -14,7 +13,8 @@ settings = {
 try:
     import requests.packages.urllib3
     requests.packages.urllib3.disable_warnings()
-except:
+except Exception as e:
+    print('[-] Error: '+str(e))
     pass
 
 def reloadSettings():
@@ -39,7 +39,7 @@ def exploit():
         resp = requests.get(rhost, headers=headers, verify=False, timeout=timeout, allow_redirects=False)
         if ((random_string in resp.headers.keys()) and (resp.headers[random_string] == random_string)):
             #result = True
-            print('[+] Host is vunurable') 
+            print('[+] Host is vunurable')
         else:
             #result = False
             print('[-] Host is invunurable')
