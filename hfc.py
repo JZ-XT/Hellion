@@ -56,7 +56,7 @@ class hfc(Cmd):
         global current
         current = import_module('modules.'+module)
         self.prompt = 'hfc ' + colored(module, 'red') + '> '
-    
+
     def do_exit(self, args):
         """Exits hfc"""
         exit(0)

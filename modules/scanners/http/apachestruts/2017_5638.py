@@ -15,7 +15,6 @@ try:
     requests.packages.urllib3.disable_warnings()
 except Exception as e:
     print('[-] Error: '+str(e))
-    pass
 
 def reloadSettings():
     global rhost, timeout
