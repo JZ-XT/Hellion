@@ -49,7 +49,6 @@ class hfc(Cmd):
         print('===============================\n')
         for setting, desc in current.settings.items():
             print(setting + ' : ' + desc['Desc'] + ' : ' + str(desc['Value']))
-    
         print('\n')
 
     def do_use(self, module):
