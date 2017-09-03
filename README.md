@@ -11,4 +11,5 @@
 |----------|---|
 | Scanners | 1 |
 | Exploits | 1 |
+| Payloads | 0 |
 | Misc     | 1 |
