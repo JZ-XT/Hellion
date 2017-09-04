@@ -2,19 +2,14 @@
   <img src="http://i.imgur.com/yUXgVLo.png"> 
 </p> 
   
-*a indie penertration testing framework *  
+*Just a metasploit ripoff *  
+  
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4fd44054c36643678cbb5248e7c6f5ff)](https://www.codacy.com/app/Tlgyt/Hellion?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=Tlgyt/Hellion&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Coverage/4fd44054c36643678cbb5248e7c6f5ff)](https://www.codacy.com/app/Tlgyt/Hellion?utm_source=github.com&utm_medium=referral&utm_content=Tlgyt/Hellion&utm_campaign=Badge_Coverage)
   
 | Modeles: |   |
 |----------|---|
 | Scanners | 1 |
 | Exploits | 1 |
+| Payloads | 0 |
 | Misc     | 1 |
-
-  
-| Coverage report: 81%                                  |            |         |          |          |
-|-------------------------------------------------------|------------|---------|----------|----------|
-| Module                                                | statements | missing | excluded | coverage |
-| Total                                                 | 96         | 18      | 0        | 81%      |
-| hfc.py                                                | 48         | 4       | 0        | 92%      |
-| modules/exploits/http/apachestruts/2017_5638_Shell.py | 22         | 8       | 0        | 64%      |
-| modules/misc/ssh/bannergrab.py                        | 26         | 6       | 0        | 77%      |
