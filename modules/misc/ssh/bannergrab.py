@@ -6,6 +6,7 @@ rhost   = '127.0.0.1'
 rport   = 22
 timeout = 5
 recv    = 24
+testing = False
 settings = {
         'rhost'     : {'Desc': '(string) Ip to grab banner from', 'Value': rhost},
         'rport'     : {'Desc':'(int) Port to use', 'Value': rport},
@@ -21,7 +22,9 @@ def reloadSettings():
     settings['recv']['Value']       = recv
 
 def exploit(): #Entrypoint fuction for all modules
-    global rhost, rport, timeout, recv
+    global rhost, rport, timeout, recv, testing
+    if(testing):
+        rhost = '173.215.67.65'
     print('Grabbing Banner...')
     try:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

