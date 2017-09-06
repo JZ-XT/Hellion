@@ -8,6 +8,8 @@
 *TLDR; Just a metasploit ripoff - But for Python*  
 
 ## What is it?
+Hellion, a project designed to pool together various community exploits, payload, scanners and  
+other misc scripts into a easy to use command line interface  
 To put it simply, it is metasploit but written completely in Python.
   
 
