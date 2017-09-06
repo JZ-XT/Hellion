@@ -66,7 +66,7 @@ class hfc(Cmd):
 
 def runTests():
     h = hfc('')
-    toTest = ['misc.ssh.bannergrab', 
+    toTest = ['misc.ssh.bannergrab',
               'exploits.http.apachestruts.2017_5638_Shell',
               'scanners.http.apachestruts.2017_5638']
     h.do_help('')
